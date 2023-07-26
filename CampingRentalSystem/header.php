@@ -159,7 +159,7 @@ foreach ($result as $row) {
 		<meta name="description" content="<?php echo $contact_meta_description; ?>">
 		<?php
 	}
-	if($cur_page == 'product.php')
+	if($cur_page == 'product.php')  //*********************** */
 	{
 		$statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=?");
 		$statement->execute(array($_REQUEST['id']));
@@ -187,13 +187,13 @@ foreach ($result as $row) {
 		<meta name="description" content="<?php echo $meta_description_home; ?>">
 		<?php
 	}
-	if($cur_page == 'customer-billing-shipping-update.php') {
+	/*if($cur_page == 'customer-billing-shipping-update.php') {   
 		?>
 		<title>Update Billing and Shipping Info - <?php echo $meta_title_home; ?></title>
 		<meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
 		<meta name="description" content="<?php echo $meta_description_home; ?>">
 		<?php
-	}
+	}*/
 	if($cur_page == 'customer-password-update.php') {
 		?>
 		<title>Update Password - <?php echo $meta_title_home; ?></title>
@@ -348,7 +348,7 @@ foreach ($result as $row) {
 							<li><a href="index.php">Home</a></li>
 							
 							<?php
-							$statement = $pdo->prepare("SELECT * FROM tbl_top_category WHERE show_on_menu=1");
+							$statement = $pdo->prepare("SELECT * FROM tbl_top_category WHERE show_on_menu=1");  //******edit */
 							$statement->execute();
 							$result = $statement->fetchAll(PDO::FETCH_ASSOC);
 							foreach ($result as $row) {

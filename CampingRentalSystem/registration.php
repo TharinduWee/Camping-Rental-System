@@ -1,5 +1,6 @@
 <?php require_once('header.php'); ?>
 
+
 <?php
 $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
 $statement->execute();
@@ -9,15 +10,19 @@ foreach ($result as $row) {
 }
 ?>
 
+
 <?php
 if (isset($_POST['form1'])) {
 
+
     $valid = 1;
+
 
     if(empty($_POST['cust_name'])) {
         $valid = 0;
         $error_message .= LANG_VALUE_123."<br>";
     }
+
 
     if(empty($_POST['cust_email'])) {
         $valid = 0;
@@ -37,40 +42,56 @@ if (isset($_POST['form1'])) {
         }
     }
 
+
     if(empty($_POST['cust_phone'])) {
         $valid = 0;
         $error_message .= LANG_VALUE_124."<br>";
     }
+
+    if(empty($_POST['cust_NIC'])) {   //******EDITED and change lang value*********** */
+        $valid = 0;
+        $error_message .= LANG_VALUE_124."<br>";
+    }
+
 
     if(empty($_POST['cust_address'])) {
         $valid = 0;
         $error_message .= LANG_VALUE_125."<br>";
     }
 
+
+    // if(empty($_POST['cust_city'])) {
+    //     $valid = 0;
+    //     $error_message .= LANG_VALUE_127."<br>";
+    // }
+
+
     if(empty($_POST['cust_country'])) {
         $valid = 0;
         $error_message .= LANG_VALUE_126."<br>";
     }
 
-    if(empty($_POST['cust_city'])) {
-        $valid = 0;
-        $error_message .= LANG_VALUE_127."<br>";
-    }
 
-    if(empty($_POST['cust_state'])) {
-        $valid = 0;
-        $error_message .= LANG_VALUE_128."<br>";
-    }
+   
 
-    if(empty($_POST['cust_zip'])) {
-        $valid = 0;
-        $error_message .= LANG_VALUE_129."<br>";
-    }
+
+    // if(empty($_POST['cust_state'])) {
+    //     $valid = 0;
+    //     $error_message .= LANG_VALUE_128."<br>";
+    // }
+
+
+    // if(empty($_POST['cust_zip'])) {
+    //     $valid = 0;
+    //     $error_message .= LANG_VALUE_129."<br>";
+    // }
+
 
     if( empty($_POST['cust_password']) || empty($_POST['cust_re_password']) ) {
         $valid = 0;
         $error_message .= LANG_VALUE_138."<br>";
     }
+
 
     if( !empty($_POST['cust_password']) && !empty($_POST['cust_re_password']) ) {
         if($_POST['cust_password'] != $_POST['cust_re_password']) {
@@ -79,11 +100,14 @@ if (isset($_POST['form1'])) {
         }
     }
 
+
     if($valid == 1) {
+
 
         $token = md5(time());
         $cust_datetime = date('Y-m-d h:i:s');
         $cust_timestamp = time();
+
 
         // saving into the database
         $statement = $pdo->prepare("INSERT INTO tbl_customer (
@@ -116,8 +140,9 @@ if (isset($_POST['form1'])) {
                                         cust_token,
                                         cust_datetime,
                                         cust_timestamp,
-                                        cust_status
-                                    ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                                        cust_status,
+                                        cust_NIC
+                                    ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         $statement->execute(array(
                                         strip_tags($_POST['cust_name']),
                                         strip_tags($_POST['cust_cname']),
@@ -148,27 +173,32 @@ if (isset($_POST['form1'])) {
                                         $token,
                                         $cust_datetime,
                                         $cust_timestamp,
+                                        strip_tags($_POST['cust_NIC']),
                                         0
                                     ));
 
+
         // Send email for confirmation of the account
         $to = $_POST['cust_email'];
-        
+       
         $subject = LANG_VALUE_150;
         $verify_link = BASE_URL.'verify.php?email='.$to.'&token='.$token;
         $message = '
 '.LANG_VALUE_151.'<br><br>
 
+
 <a href="'.$verify_link.'">'.$verify_link.'</a>';
+
 
         $headers = "From: noreply@" . BASE_URL . "\r\n" .
                    "Reply-To: noreply@" . BASE_URL . "\r\n" .
-                   "X-Mailer: PHP/" . phpversion() . "\r\n" . 
-                   "MIME-Version: 1.0\r\n" . 
+                   "X-Mailer: PHP/" . phpversion() . "\r\n" .
+                   "MIME-Version: 1.0\r\n" .
                    "Content-Type: text/html; charset=ISO-8859-1\r\n";
-        
+       
         // Sending Email
         mail($to, $subject, $message, $headers);
+
 
         unset($_POST['cust_name']);
         unset($_POST['cust_cname']);
@@ -178,11 +208,14 @@ if (isset($_POST['form1'])) {
         unset($_POST['cust_city']);
         unset($_POST['cust_state']);
         unset($_POST['cust_zip']);
+        unset($_POST['cust_NIC']);
+
 
         $success_message = LANG_VALUE_152;
     }
 }
 ?>
+
 
 <div class="page-banner" style="background-color:#444;background-image: url(assets/uploads/<?php echo $banner_registration; ?>);">
     <div class="inner">
@@ -190,20 +223,23 @@ if (isset($_POST['form1'])) {
     </div>
 </div>
 
+
 <div class="page">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="user-content">
 
-                    
+
+                   
+
 
                     <form action="" method="post">
                         <?php $csrf->echoInputField(); ?>
                         <div class="row">
                             <div class="col-md-2"></div>
                             <div class="col-md-8">
-                                
+                               
                                 <?php
                                 if($error_message != '') {
                                     echo "<div class='error' style='padding: 10px;background:#f1f1f1;margin-bottom:20px;'>".$error_message."</div>";
@@ -213,14 +249,15 @@ if (isset($_POST['form1'])) {
                                 }
                                 ?>
 
+
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_102; ?> *</label>
                                     <input type="text" class="form-control" name="cust_name" value="<?php if(isset($_POST['cust_name'])){echo $_POST['cust_name'];} ?>">
                                 </div>
-                                <div class="col-md-6 form-group">
+                                <!-- <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_103; ?></label>
                                     <input type="text" class="form-control" name="cust_cname" value="<?php if(isset($_POST['cust_cname'])){echo $_POST['cust_cname'];} ?>">
-                                </div>
+                                </div> -->
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_94; ?> *</label>
                                     <input type="email" class="form-control" name="cust_email" value="<?php if(isset($_POST['cust_email'])){echo $_POST['cust_email'];} ?>">
@@ -228,6 +265,10 @@ if (isset($_POST['form1'])) {
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_104; ?> *</label>
                                     <input type="text" class="form-control" name="cust_phone" value="<?php if(isset($_POST['cust_phone'])){echo $_POST['cust_phone'];} ?>">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for=""><?php echo LANG_VALUE_124; ?> *</label>
+                                    <input type="text" class="form-control" name="cust_NIC" value="<?php if(isset($_POST['cust_NIC'])){echo $_POST['cust_NIC'];} ?>">
                                 </div>
                                 <div class="col-md-12 form-group">
                                     <label for=""><?php echo LANG_VALUE_105; ?> *</label>
@@ -249,19 +290,19 @@ if (isset($_POST['form1'])) {
                                     ?>    
                                     </select>                                    
                                 </div>
-                                
+                               
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_107; ?> *</label>
                                     <input type="text" class="form-control" name="cust_city" value="<?php if(isset($_POST['cust_city'])){echo $_POST['cust_city'];} ?>">
                                 </div>
-                                <div class="col-md-6 form-group">
+                                <!-- <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_108; ?> *</label>
                                     <input type="text" class="form-control" name="cust_state" value="<?php if(isset($_POST['cust_state'])){echo $_POST['cust_state'];} ?>">
-                                </div>
-                                <div class="col-md-6 form-group">
+                                </div> -->
+                                <!-- <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_109; ?> *</label>
                                     <input type="text" class="form-control" name="cust_zip" value="<?php if(isset($_POST['cust_zip'])){echo $_POST['cust_zip'];} ?>">
-                                </div>
+                                </div> -->
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_96; ?> *</label>
                                     <input type="password" class="form-control" name="cust_password">
@@ -282,5 +323,6 @@ if (isset($_POST['form1'])) {
         </div>
     </div>
 </div>
+
 
 <?php require_once('footer.php'); ?>

@@ -18,15 +18,15 @@ if(!isset($_REQUEST['id'])) {
 
 foreach($result as $row) {
     $p_name = $row['p_name'];
-    $p_old_price = $row['p_old_price'];
+    $p_old_price = $row['p_old_price'];             //
     $p_current_price = $row['p_current_price'];
     $p_qty = $row['p_qty'];
-    $p_featured_photo = $row['p_featured_photo'];
+    $p_featured_photo = $row['p_featured_photo'];   //
     $p_description = $row['p_description'];
     $p_short_description = $row['p_short_description'];
     $p_feature = $row['p_feature'];
     $p_condition = $row['p_condition'];
-    $p_return_policy = $row['p_return_policy'];
+    // $p_return_policy = $row['p_return_policy'];
     $p_total_view = $row['p_total_view'];
     $p_is_featured = $row['p_is_featured'];
     $p_is_active = $row['p_is_active'];
