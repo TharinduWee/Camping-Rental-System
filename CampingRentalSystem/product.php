@@ -28,7 +28,7 @@ foreach($result as $row) {
     $p_condition = $row['p_condition'];
     // $p_return_policy = $row['p_return_policy'];
     $p_total_view = $row['p_total_view'];
-    $p_is_featured = $row['p_is_featured'];
+    // $p_is_featured = $row['p_is_featured'];
     $p_is_active = $row['p_is_active'];
     $ecat_id = $row['ecat_id'];
 }
@@ -70,19 +70,19 @@ $statement = $pdo->prepare("UPDATE tbl_product SET p_total_view=? WHERE p_id=?")
 $statement->execute(array($p_total_view,$_REQUEST['id']));
 
 
-$statement = $pdo->prepare("SELECT * FROM tbl_product_size WHERE p_id=?");
-$statement->execute(array($_REQUEST['id']));
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
-foreach ($result as $row) {
-    $size[] = $row['size_id'];
-}
+// $statement = $pdo->prepare("SELECT * FROM tbl_product_size WHERE p_id=?");
+// $statement->execute(array($_REQUEST['id']));
+// $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+// foreach ($result as $row) {
+//     $size[] = $row['size_id'];
+// }
 
-$statement = $pdo->prepare("SELECT * FROM tbl_product_color WHERE p_id=?");
-$statement->execute(array($_REQUEST['id']));
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
-foreach ($result as $row) {
-    $color[] = $row['color_id'];
-}
+// $statement = $pdo->prepare("SELECT * FROM tbl_product_color WHERE p_id=?");
+// $statement->execute(array($_REQUEST['id']));
+// $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+// foreach ($result as $row) {
+//     $color[] = $row['color_id'];
+// }
 
 
 if(isset($_POST['form_review'])) {

@@ -91,39 +91,7 @@ foreach ($result as $row)
 
 </div>
 
-<!-- "Nearby Camping Locations"  -->
-<?php if ($home_service_on_off == 1): ?>
-<div class="service bg-gray">
-    <div class="container">
-        
-    <h2 style="margin-bottom: 20px; text-align: center;">Nearby Camping Locations</h2>
 
-
-        <div class="row">
-            <?php
-            $statement = $pdo->prepare("SELECT * FROM tbl_service");
-            $statement->execute();
-            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($result as $row) {
-                ?>
-                <div class="col-md-4">
-                    <div class="item">
-                        <div class="photo"><img src="assets/uploads/<?php echo $row['photo']; ?>" width="150px" alt="<?php echo $row['title']; ?>"></div>
-                        <h3><?php echo $row['title']; ?></h3>
-                        <p>
-                            <?php echo nl2br($row['content']); ?>
-                        </p>
-                        <!-- Display the "Location" link here -->
-                        <p><a href="<?php echo $row['Location']; ?>">Location</a></p>
-                    </div>
-                </div>
-                <?php
-            }
-            ?>
-        </div>
-    </div>
-</div>
-<?php endif; ?>
 
 <!-- featured products REMOVEEE--> <!--removed-->
 <!--
@@ -518,7 +486,40 @@ foreach ($result as $row)
 </div>
 <?php endif; ?>
 
+<!-- "Nearby Camping Locations"  -->
+<?php if ($home_service_on_off == 1): ?>
+<div class="service bg-gray">
+    <div class="container">
+        
+    <h2 style="margin-bottom: 20px; text-align: center;">Nearby Camping Locations</h2>
 
+
+        <div class="row">
+            <?php
+            $statement = $pdo->prepare("SELECT * FROM tbl_service");
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($result as $row) {
+                ?>
+                <div class="col-md-4">
+                    <div class="item">
+                        <div class="photo"><img src="assets/uploads/<?php echo $row['photo']; ?>" width="150px" alt="<?php echo $row['title']; ?>"></div>
+                        <h3><?php echo $row['title']; ?></h3>
+                        <p>
+                            <?php echo nl2br($row['content']); ?>
+                        </p>
+                        <!-- Display the "Location" link here -->
+                        <p><a href="<?php echo $row['Location']; ?>">Location</a></p>
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
+        </div>
+    </div>
+</div>
+
+<?php endif; ?>
 
 
 

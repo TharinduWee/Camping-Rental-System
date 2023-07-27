@@ -696,7 +696,8 @@ INSERT INTO `tbl_language` (`lang_id`, `lang_name`, `lang_value`) VALUES
 (160, 'Please login as customer to checkout', 'Please login as customer to checkout'),
 (161, 'Billing Address', 'Billing Address'),
 (162, 'Shipping Address', 'Shipping Address'),
-(163, 'Rating is Submitted Successfully!', 'Rating is Submitted Successfully!');
+(163, 'Rating is Submitted Successfully!', 'Rating is Submitted Successfully!'),
+(164, 'NIC', 'NIC cannot be empty');
 
 -- --------------------------------------------------------
 
