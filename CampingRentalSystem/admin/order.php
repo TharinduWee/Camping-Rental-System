@@ -213,8 +213,8 @@ if($success_message != '') {
                            $result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
                            foreach ($result1 as $row1) {
                                 echo '<b>Product:</b> '.$row1['product_name'];
-                                echo '<br>(<b>Size:</b> '.$row1['size'];
-                                echo ', <b>Color:</b> '.$row1['color'].')';
+                                // echo '<br>(<b>Size:</b> '.$row1['size'];
+                                // echo ', <b>Color:</b> '.$row1['color'].')';
                                 echo '<br>(<b>Quantity:</b> '.$row1['quantity'];
                                 echo ', <b>Unit Price:</b> '.$row1['unit_price'].')';
                                 echo '<br><br>';

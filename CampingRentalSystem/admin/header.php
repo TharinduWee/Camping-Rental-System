@@ -104,7 +104,7 @@ if(!isset($_SESSION['user'])) {
 			          </a>
 			        </li>
 
-                    <li class="treeview <?php if( ($cur_page == 'size.php') || ($cur_page == 'size-add.php') || ($cur_page == 'size-edit.php') || ($cur_page == 'color.php') || ($cur_page == 'color-add.php') || ($cur_page == 'color-edit.php') || ($cur_page == 'country.php') || ($cur_page == 'country-add.php') || ($cur_page == 'country-edit.php') || ($cur_page == 'shipping-cost.php') || ($cur_page == 'shipping-cost-edit.php') || ($cur_page == 'top-category.php') || ($cur_page == 'top-category-add.php') || ($cur_page == 'top-category-edit.php') || ($cur_page == 'mid-category.php') || ($cur_page == 'mid-category-add.php') || ($cur_page == 'mid-category-edit.php') || ($cur_page == 'end-category.php') || ($cur_page == 'end-category-add.php') || ($cur_page == 'end-category-edit.php') ) {echo 'active';} ?>">
+                    <li class="treeview <?php if( ($cur_page == 'top-category.php') || ($cur_page == 'top-category-add.php') || ($cur_page == 'top-category-edit.php') || ($cur_page == 'mid-category.php') || ($cur_page == 'mid-category-add.php') || ($cur_page == 'mid-category-edit.php') || ($cur_page == 'end-category.php') || ($cur_page == 'end-category-add.php') || ($cur_page == 'end-category-edit.php') ) {echo 'active';} ?>">
                         <a href="#">
                             <i class="fa fa-cogs"></i>
                             <span>Shop Settings</span>
@@ -113,10 +113,6 @@ if(!isset($_SESSION['user'])) {
 							</span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="size.php"><i class="fa fa-circle-o"></i> Size</a></li>
-                            <li><a href="color.php"><i class="fa fa-circle-o"></i> Color</a></li>
-                            <li><a href="country.php"><i class="fa fa-circle-o"></i> Country</a></li>
-                            <li><a href="shipping-cost.php"><i class="fa fa-circle-o"></i> Shipping Cost</a></li>
                             <li><a href="top-category.php"><i class="fa fa-circle-o"></i> Top Level Category</a></li>
                             <li><a href="mid-category.php"><i class="fa fa-circle-o"></i> Mid Level Category</a></li>
                             <li><a href="end-category.php"><i class="fa fa-circle-o"></i> End Level Category</a></li>
@@ -137,6 +133,12 @@ if(!isset($_SESSION['user'])) {
                         </a>
                     </li>
 
+					<li class="treeview <?php if( ($cur_page == 'staff.php') ) {echo 'active';} ?>">
+			          <a href="staff.php">
+			            <i class="fa fa-question-circle"></i> <span>Staff</span>
+			          </a>
+			        </li>
+
 
                      <li class="treeview <?php if( ($cur_page == 'slider.php') ) {echo 'active';} ?>">
 			          <a href="slider.php">
@@ -146,11 +148,11 @@ if(!isset($_SESSION['user'])) {
                     <!-- Icons to be displayed on Shop -->
 			        <li class="treeview <?php if( ($cur_page == 'service.php') ) {echo 'active';} ?>">
 			          <a href="service.php">
-			            <i class="fa fa-list-ol"></i> <span>Services</span>
+			            <i class="fa fa-list-ol"></i> <span>Camping Locations</span>
 			          </a>
 			        </li>
 
-			      			        <li class="treeview <?php if( ($cur_page == 'faq.php') ) {echo 'active';} ?>">
+			      	<li class="treeview <?php if( ($cur_page == 'faq.php') ) {echo 'active';} ?>">
 			          <a href="faq.php">
 			            <i class="fa fa-question-circle"></i> <span>FAQ</span>
 			          </a>

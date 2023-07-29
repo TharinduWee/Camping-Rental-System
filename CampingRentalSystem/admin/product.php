@@ -20,7 +20,7 @@
 								<th width="10">#</th>
 								<th>Photo</th>
 								<th width="160">Product Name</th>
-								<th width="60">Old Price</th>
+								<!-- <th width="60">Old Price</th> -->
 								<th width="60">(C) Price</th>
 								<th width="60">Quantity</th>
 								<th>Featured?</th>
@@ -36,7 +36,7 @@
 														
 														t1.p_id,
 														t1.p_name,
-														t1.p_old_price,
+														-- t1.p_old_price,
 														t1.p_current_price,
 														t1.p_qty,
 														t1.p_featured_photo,
@@ -71,7 +71,7 @@
 									<td><?php echo $i; ?></td>
 									<td style="width:82px;"><img src="../assets/uploads/<?php echo $row['p_featured_photo']; ?>" alt="<?php echo $row['p_name']; ?>" style="width:80px;"></td>
 									<td><?php echo $row['p_name']; ?></td>
-									<td>$<?php echo $row['p_old_price']; ?></td>
+									<!-- <td>$<?php echo $row['p_old_price']; ?></td> -->
 									<td>$<?php echo $row['p_current_price']; ?></td>
 									<td><?php echo $row['p_qty']; ?></td>
 									<td>

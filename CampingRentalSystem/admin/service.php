@@ -2,7 +2,7 @@
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>View Services</h1>
+		<h1>View Locations</h1>
 	</div>
 	<div class="content-header-right">
 		<a href="service-add.php" class="btn btn-primary btn-sm">Add Service</a>

@@ -7,49 +7,13 @@ if(isset($_POST['form1'])) {
 	$statement->execute(array($_POST['facebook'],'Facebook'));
 
 	$statement = $pdo->prepare("UPDATE tbl_social SET social_url=? WHERE social_name=?");
-	$statement->execute(array($_POST['twitter'],'Twitter'));
-
-	$statement = $pdo->prepare("UPDATE tbl_social SET social_url=? WHERE social_name=?");
-	$statement->execute(array($_POST['linkedin'],'LinkedIn'));
-
-	$statement = $pdo->prepare("UPDATE tbl_social SET social_url=? WHERE social_name=?");
-	$statement->execute(array($_POST['googleplus'],'Google Plus'));
-
-	$statement = $pdo->prepare("UPDATE tbl_social SET social_url=? WHERE social_name=?");
-	$statement->execute(array($_POST['pinterest'],'Pinterest'));
-
-	$statement = $pdo->prepare("UPDATE tbl_social SET social_url=? WHERE social_name=?");
 	$statement->execute(array($_POST['youtube'],'YouTube'));
 
 	$statement = $pdo->prepare("UPDATE tbl_social SET social_url=? WHERE social_name=?");
 	$statement->execute(array($_POST['instagram'],'Instagram'));
 
 	$statement = $pdo->prepare("UPDATE tbl_social SET social_url=? WHERE social_name=?");
-	$statement->execute(array($_POST['tumblr'],'Tumblr'));
-
-	$statement = $pdo->prepare("UPDATE tbl_social SET social_url=? WHERE social_name=?");
-	$statement->execute(array($_POST['flickr'],'Flickr'));
-
-	$statement = $pdo->prepare("UPDATE tbl_social SET social_url=? WHERE social_name=?");
-	$statement->execute(array($_POST['reddit'],'Reddit'));
-
-	$statement = $pdo->prepare("UPDATE tbl_social SET social_url=? WHERE social_name=?");
-	$statement->execute(array($_POST['snapchat'],'Snapchat'));
-
-	$statement = $pdo->prepare("UPDATE tbl_social SET social_url=? WHERE social_name=?");
 	$statement->execute(array($_POST['whatsapp'],'WhatsApp'));
-
-	$statement = $pdo->prepare("UPDATE tbl_social SET social_url=? WHERE social_name=?");
-	$statement->execute(array($_POST['quora'],'Quora'));
-
-	$statement = $pdo->prepare("UPDATE tbl_social SET social_url=? WHERE social_name=?");
-	$statement->execute(array($_POST['stumbleupon'],'StumbleUpon'));
-
-	$statement = $pdo->prepare("UPDATE tbl_social SET social_url=? WHERE social_name=?");
-	$statement->execute(array($_POST['delicious'],'Delicious'));
-
-	$statement = $pdo->prepare("UPDATE tbl_social SET social_url=? WHERE social_name=?");
-	$statement->execute(array($_POST['digg'],'Digg'));
 
 	$success_message = 'Social Media URLs are updated successfully.';
 
@@ -70,51 +34,16 @@ foreach ($result as $row) {
 	if($row['social_name'] == 'Facebook') {
 		$facebook = $row['social_url'];
 	}
-	if($row['social_name'] == 'Twitter') {
-		$twitter = $row['social_url'];
-	}
-	if($row['social_name'] == 'LinkedIn') {
-		$linkedin = $row['social_url'];
-	}
-	if($row['social_name'] == 'Google Plus') {
-		$googleplus = $row['social_url'];
-	}
-	if($row['social_name'] == 'Pinterest') {
-		$pinterest = $row['social_url'];
-	}
 	if($row['social_name'] == 'YouTube') {
 		$youtube = $row['social_url'];
 	}
 	if($row['social_name'] == 'Instagram') {
 		$instagram = $row['social_url'];
 	}
-	if($row['social_name'] == 'Tumblr') {
-		$tumblr = $row['social_url'];
-	}
-	if($row['social_name'] == 'Flickr') {
-		$flickr = $row['social_url'];
-	}
-	if($row['social_name'] == 'Reddit') {
-		$reddit = $row['social_url'];
-	}
-	if($row['social_name'] == 'Snapchat') {
-		$snapchat = $row['social_url'];
-	}
 	if($row['social_name'] == 'WhatsApp') {
 		$whatsapp = $row['social_url'];
 	}
-	if($row['social_name'] == 'Quora') {
-		$quora = $row['social_url'];
-	}
-	if($row['social_name'] == 'StumbleUpon') {
-		$stumbleupon = $row['social_url'];
-	}
-	if($row['social_name'] == 'Delicious') {
-		$delicious = $row['social_url'];
-	}
-	if($row['social_name'] == 'Digg') {
-		$digg = $row['social_url'];
-	}
+	
 }
 ?>
 
@@ -148,30 +77,6 @@ foreach ($result as $row) {
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Twitter </label>
-							<div class="col-sm-4">
-								<input type="text" class="form-control" name="twitter" value="<?php echo $twitter; ?>">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">LinkedIn </label>
-							<div class="col-sm-4">
-								<input type="text" class="form-control" name="linkedin" value="<?php echo $linkedin; ?>">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Google Plus </label>
-							<div class="col-sm-4">
-								<input type="text" class="form-control" name="googleplus" value="<?php echo $googleplus; ?>">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Pinterest </label>
-							<div class="col-sm-4">
-								<input type="text" class="form-control" name="pinterest" value="<?php echo $pinterest; ?>">
-							</div>
-						</div>
-						<div class="form-group">
 							<label for="" class="col-sm-2 control-label">YouTube </label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" name="youtube" value="<?php echo $youtube; ?>">
@@ -184,59 +89,12 @@ foreach ($result as $row) {
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Tumblr </label>
-							<div class="col-sm-4">
-								<input type="text" class="form-control" name="tumblr" value="<?php echo $tumblr; ?>">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Flickr </label>
-							<div class="col-sm-4">
-								<input type="text" class="form-control" name="flickr" value="<?php echo $flickr; ?>">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Reddit </label>
-							<div class="col-sm-4">
-								<input type="text" class="form-control" name="reddit" value="<?php echo $reddit; ?>">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Snapchat </label>
-							<div class="col-sm-4">
-								<input type="text" class="form-control" name="snapchat" value="<?php echo $snapchat; ?>">
-							</div>
-						</div>
-						<div class="form-group">
 							<label for="" class="col-sm-2 control-label">WhatsApp </label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" name="whatsapp" value="<?php echo $whatsapp; ?>">
 							</div>
 						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Quora </label>
-							<div class="col-sm-4">
-								<input type="text" class="form-control" name="quora" value="<?php echo $quora; ?>">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">StumbleUpon </label>
-							<div class="col-sm-4">
-								<input type="text" class="form-control" name="stumbleupon" value="<?php echo $stumbleupon; ?>">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Delicious </label>
-							<div class="col-sm-4">
-								<input type="text" class="form-control" name="delicious" value="<?php echo $delicious; ?>">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Digg </label>
-							<div class="col-sm-4">
-								<input type="text" class="form-control" name="digg" value="<?php echo $digg; ?>">
-							</div>
-						</div>
+						
 						<div class="form-group">
 							<label for="" class="col-sm-2 control-label"></label>
 							<div class="col-sm-6">

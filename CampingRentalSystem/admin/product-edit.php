@@ -257,19 +257,19 @@ foreach ($result as $row) {
     $tcat_id = $row['tcat_id'];
 }
 
-$statement = $pdo->prepare("SELECT * FROM tbl_product_size WHERE p_id=?");
-$statement->execute(array($_REQUEST['id']));
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
-foreach ($result as $row) {
-	$size_id[] = $row['size_id'];
-}
+// $statement = $pdo->prepare("SELECT * FROM tbl_product_size WHERE p_id=?");
+// $statement->execute(array($_REQUEST['id']));
+// $result = $statement->fetchAll(PDO::FETCH_ASSOC);							
+// foreach ($result as $row) {
+// 	$size_id[] = $row['size_id'];
+// }
 
-$statement = $pdo->prepare("SELECT * FROM tbl_product_color WHERE p_id=?");
-$statement->execute(array($_REQUEST['id']));
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
-foreach ($result as $row) {
-	$color_id[] = $row['color_id'];
-}
+// $statement = $pdo->prepare("SELECT * FROM tbl_product_color WHERE p_id=?");
+// $statement->execute(array($_REQUEST['id']));
+// $result = $statement->fetchAll(PDO::FETCH_ASSOC);							
+// foreach ($result as $row) {
+// 	$color_id[] = $row['color_id'];
+// }
 ?>
 
 
