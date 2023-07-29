@@ -18,14 +18,14 @@ if(!isset($_REQUEST['id'])) {
 
 foreach($result as $row) {
     $p_name = $row['p_name'];
-    $p_old_price = $row['p_old_price'];             //
+    // $p_old_price = $row['p_old_price'];             //
     $p_current_price = $row['p_current_price'];
     $p_qty = $row['p_qty'];
     $p_featured_photo = $row['p_featured_photo'];   //
     $p_description = $row['p_description'];
     $p_short_description = $row['p_short_description'];
     $p_feature = $row['p_feature'];
-    $p_condition = $row['p_condition'];
+    // $p_condition = $row['p_condition'];
     // $p_return_policy = $row['p_return_policy'];
     $p_total_view = $row['p_total_view'];
     // $p_is_featured = $row['p_is_featured'];
@@ -458,9 +458,9 @@ if($success_message1 != '') {
 							<div class="p-price">
                                 <span style="font-size:14px;"><?php echo LANG_VALUE_54; ?></span><br>
                                 <span>
-                                    <?php if($p_old_price!=''): ?>
+                                    <!-- <?php if($p_old_price!=''): ?>
                                         <del><?php echo LANG_VALUE_1; ?><?php echo $p_old_price; ?></del>
-                                    <?php endif; ?> 
+                                    <?php endif; ?>  -->
                                         <?php echo LANG_VALUE_1; ?><?php echo $p_current_price; ?>
                                 </span>
                             </div>
@@ -475,10 +475,10 @@ if($success_message1 != '') {
                                 <input type="submit" value="<?php echo LANG_VALUE_154; ?>" name="form_add_to_cart">
 							</div>
                             </form>
-							<div class="share">
+							<!-- <div class="share">
                                 <?php echo LANG_VALUE_58; ?> <br>
 								<div class="sharethis-inline-share-buttons"></div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 
@@ -683,9 +683,9 @@ if($success_message1 != '') {
                                 <h4>
                                     <?php echo LANG_VALUE_1; ?><?php echo $row['p_current_price']; ?> 
                                     <?php if($row['p_old_price'] != ''): ?>
-                                    <del>
+                                    <!-- <del>
                                         <?php echo LANG_VALUE_1; ?><?php echo $row['p_old_price']; ?>
-                                    </del>
+                                    </del> -->
                                     <?php endif; ?>
                                 </h4>
                                 <div class="rating">

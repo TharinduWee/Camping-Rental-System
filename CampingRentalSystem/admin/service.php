@@ -21,13 +21,14 @@
 								<th>Photo</th>
 								<th width="100">Title</th>
 								<th>Content</th>
+								<th>Location Link</th>
 								<th width="80">Action</th>
 							</tr>
 						</thead>
 						<tbody>
 							<?php
 							$i=0;
-							$statement = $pdo->prepare("SELECT * FROM tbl_service");
+							$statement = $pdo->prepare("SELECT *, CONCAT('https://example.com/locations/', id) AS location_link FROM tbl_service");
 							$statement->execute();
 							$result = $statement->fetchAll(PDO::FETCH_ASSOC);
 							foreach ($result as $row) {
@@ -38,6 +39,9 @@
 									<td style="width:130px;"><img src="../assets/uploads/<?php echo $row['photo']; ?>" alt="<?php echo $row['title']; ?>" style="width:120px;"></td>
 									<td><?php echo $row['title']; ?></td>
 									<td><?php echo $row['content']; ?></td>
+									<td>
+										<a href="<?php echo $row['location_link']; ?>" target="_blank">View Location</a>
+									</td>
 									<td>										
 										<a href="service-edit.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-xs">Edit</a>
 										<a href="#" class="btn btn-danger btn-xs" data-href="service-delete.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete">Delete</a>  
@@ -52,10 +56,7 @@
 			</div>
 		</div>
 	</div>
-
-
 </section>
-
 
 <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -74,6 +75,5 @@
         </div>
     </div>
 </div>
-
 
 <?php require_once('footer.php'); ?>

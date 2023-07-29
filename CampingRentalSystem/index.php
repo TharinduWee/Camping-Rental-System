@@ -509,7 +509,7 @@ foreach ($result as $row)
                             <?php echo nl2br($row['content']); ?>
                         </p>
                         <!-- Display the "Location" link here -->
-                        <p><a href="<?php echo $row['Location']; ?>">Location</a></p>
+                        <p><a href="<?php echo $row['location_link']; ?>">Location</a></p>
                     </div>
                 </div>
                 <?php
