@@ -54,7 +54,7 @@ if (!isset($_SESSION['cart_p_id'])) {
                     <div class="clear"></div>
                     <h3 class="special"><?php echo LANG_VALUE_33; ?></h3>
                     <div class="row">
-                        <?php
+                        <!-- <?php   //*********REMOVED***** */
                         $checkout_access = 1;
                         if (
                             ($_SESSION['customer']['cust_b_name'] == '') ||
@@ -83,7 +83,7 @@ if (!isset($_SESSION['cart_p_id'])) {
                                     You must have to fill up all the billing and shipping information from your dashboard panel in order to checkout the order. Please fill up the information going to <a href="customer-billing-shipping-update.php" style="color:red;text-decoration:underline;">this link</a>.
                                 </div>
                             </div>
-                        <?php else : ?>
+                        <?php else : ?> -->
                             <div class="col-md-4">
                                 <div class="row">
 

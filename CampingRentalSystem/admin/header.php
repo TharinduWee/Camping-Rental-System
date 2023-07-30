@@ -139,6 +139,12 @@ if(!isset($_SESSION['user'])) {
 			          </a>
 			        </li>
 
+					<li class="treeview <?php if( ($cur_page == 'supplier.php') ) {echo 'active';} ?>">
+			          <a href="supplier.php">
+			            <i class="fa fa-question-circle"></i> <span>Supplier</span>
+			          </a>
+			        </li>
+
 
                      <li class="treeview <?php if( ($cur_page == 'slider.php') ) {echo 'active';} ?>">
 			          <a href="slider.php">
