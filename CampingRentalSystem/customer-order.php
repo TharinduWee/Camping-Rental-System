@@ -157,8 +157,8 @@ if(!isset($_SESSION['customer'])) {
                                             $result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
                                             foreach ($result1 as $row1) {
                                                 echo 'Product Name: '.$row1['product_name'];
-                                                echo '<br>Size: '.$row1['size'];
-                                                echo '<br>Color: '.$row1['color'];
+                                                // echo '<br>Size: '.$row1['size'];
+                                                // echo '<br>Color: '.$row1['color'];
                                                 echo '<br>Quantity: '.$row1['quantity'];
                                                 echo '<br>Unit Price: $'.$row1['unit_price'];
                                                 echo '<br><br>';
