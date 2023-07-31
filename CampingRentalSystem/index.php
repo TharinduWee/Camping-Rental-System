@@ -91,13 +91,6 @@ foreach ($result as $row)
 
 </div>
 
-
-
-<!-- featured products REMOVEEE--> <!--removed-->
-
-
-<!-- LATEST products --> 
-
 <!-- popular products --> 
 
 <?php if($home_popular_product_on_off == 1): ?>
@@ -131,9 +124,9 @@ foreach ($result as $row)
                                 <h3><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a></h3>
                                 <h4>
                                     Rs <?php echo $row['p_current_price']; ?> Per Night
-                                    <?php if($row['p_old_price'] != ''): ?>
+                                    <!-- <?php if($row['p_old_price'] != ''): ?>
                                     
-                                    <?php endif; ?>
+                                    <?php endif; ?> -->
                                 </h4>
                                 <div class="rating">
                                     <?php
@@ -258,11 +251,9 @@ foreach ($result as $row)
                                 <h3><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a></h3>
                                 <h4>
                                     Rs <?php echo $row['p_current_price']; ?> Per Night
-                                    <?php if($row['p_old_price'] != ''): ?>
-                                    <del>
-                                        $<?php echo $row['p_old_price']; ?>
-                                    </del>
-                                    <?php endif; ?>
+                                    <!-- <?php if($row['p_old_price'] != ''): ?>
+                                    
+                                    <?php endif; ?> -->
                                 </h4>
                                 <div class="rating">
                                     <?php

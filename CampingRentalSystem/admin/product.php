@@ -23,7 +23,7 @@
 								<!-- <th width="60">Old Price</th> -->
 								<th width="60">(C) Price</th>
 								<th width="60">Quantity</th>
-								<th>Featured?</th>
+								<!-- <th>Featured?</th> -->
 								<th>Active?</th>
 								<th>Category</th>
 								<th width="80">Action</th>
@@ -40,7 +40,7 @@
 														t1.p_current_price,
 														t1.p_qty,
 														t1.p_featured_photo,
-														t1.p_is_featured,
+														-- t1.p_is_featured,
 														t1.p_is_active,
 														t1.ecat_id,
 
@@ -74,9 +74,9 @@
 									<!-- <td>$<?php echo $row['p_old_price']; ?></td> -->
 									<td>$<?php echo $row['p_current_price']; ?></td>
 									<td><?php echo $row['p_qty']; ?></td>
-									<td>
+									<!-- <td>
 										<?php if($row['p_is_featured'] == 1) {echo '<span class="badge badge-success" style="background-color:green;">Yes</span>';} else {echo '<span class="badge badge-success" style="background-color:red;">No</span>';} ?>
-									</td>
+									</td> -->
 									<td>
 										<?php if($row['p_is_active'] == 1) {echo '<span class="badge badge-success" style="background-color:green;">Yes</span>';} else {echo '<span class="badge badge-danger" style="background-color:red;">No</span>';} ?>
 									</td>

@@ -23,8 +23,8 @@ foreach($result as $row) {
     $p_qty = $row['p_qty'];
     $p_featured_photo = $row['p_featured_photo'];   //
     $p_description = $row['p_description'];
-    $p_short_description = $row['p_short_description'];
-    $p_feature = $row['p_feature'];
+    // $p_short_description = $row['p_short_description'];
+    // $p_feature = $row['p_feature'];
     // $p_condition = $row['p_condition'];
     // $p_return_policy = $row['p_return_policy'];
     $p_total_view = $row['p_total_view'];
@@ -71,7 +71,7 @@ $statement->execute(array($p_total_view,$_REQUEST['id']));
 
 if(isset($_POST['form_add_to_cart'])) {
 
-	// getting the currect stock of this product
+	// getting the currect stock of this product   *************************************************
 	$statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=?");
 	$statement->execute(array($_REQUEST['id']));
 	$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
@@ -170,6 +170,7 @@ if(isset($_POST['form_add_to_cart'])) {
                 $color_name = '';
             }
           
+            $selected_date = isset($_POST['selected_date']) ? $_POST['selected_date'] : '';
 
             $_SESSION['cart_p_id'][$new_key] = $_REQUEST['id'];
             $_SESSION['cart_size_id'][$new_key] = $size_id;
@@ -180,6 +181,7 @@ if(isset($_POST['form_add_to_cart'])) {
             $_SESSION['cart_p_current_price'][$new_key] = $_POST['p_current_price'];
             $_SESSION['cart_p_name'][$new_key] = $_POST['p_name'];
             $_SESSION['cart_p_featured_photo'][$new_key] = $_POST['p_featured_photo'];
+            $_SESSION['cart_selected_date'][$new_key] = $selected_date; // Save the selected date in the session
 
             $success_message1 = 'Product is added to the cart successfully!';
         }
@@ -302,11 +304,11 @@ if($success_message1 != '') {
 						<div class="col-md-7">
 							<div class="p-title"><h2><?php echo $p_name; ?></h2></div>
 							
-							<div class="p-short-des">
+							<!-- <div class="p-short-des">
 								<p>
 									<?php echo $p_short_description; ?>
 								</p>
-							</div>
+							</div> -->
                             <form action="" method="post">
                             <div class="p-quantity">
                                 <div class="row">
@@ -316,6 +318,24 @@ if($success_message1 != '') {
                                 </div>
                                 
                             </div>
+                            <!-- ************************added date_picker*********************************************** -->
+                            <!-- <div class="date_picker"> -->
+                                <!-- Date picker input field -->
+                                <!-- <form action="" method="post"> -->
+                                    <!-- <label for="date">Select a date:</label>
+                                    <input type="date" id="date" name="selected_date">
+                                    <input type="submit" value="Submit">
+                                </form>
+                            </div> -->
+
+                            <div class="p-quantity">
+    <?php echo LANG_VALUE_55; ?><br>
+    <!-- Date picker input field -->
+    <label for="selected_date">Select a date:</label>
+    <input type="date" id="selected_date" name="selected_date">
+</div>
+
+
 							<div class="p-price">
                                 <span style="font-size:14px;"><?php echo LANG_VALUE_54; ?></span><br>
                                 <span>
@@ -360,17 +380,7 @@ if($success_message1 != '') {
                                         ?>
 									</p>
 								</div>
-                                <div role="tabpanel" class="tab-pane" id="feature" style="margin-top: -30px;">
-                                    <p>
-                                        <?php
-                                        if($p_feature == '') {
-                                            echo LANG_VALUE_71;
-                                        } else {
-                                            echo $p_feature;
-                                        }
-                                        ?>
-                                    </p>
-                                </div>
+                                
                                 
 								
 							</div>

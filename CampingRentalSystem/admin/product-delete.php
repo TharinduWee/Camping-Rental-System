@@ -44,17 +44,17 @@ if(!isset($_REQUEST['id'])) {
 	$statement = $pdo->prepare("DELETE FROM tbl_product_photo WHERE p_id=?");
 	$statement->execute(array($_REQUEST['id']));
 
-	// Delete from tbl_product_size
-	$statement = $pdo->prepare("DELETE FROM tbl_product_size WHERE p_id=?");
-	$statement->execute(array($_REQUEST['id']));
+	// // Delete from tbl_product_size
+	// $statement = $pdo->prepare("DELETE FROM tbl_product_size WHERE p_id=?");
+	// $statement->execute(array($_REQUEST['id']));
 
-	// Delete from tbl_product_color
-	$statement = $pdo->prepare("DELETE FROM tbl_product_color WHERE p_id=?");
-	$statement->execute(array($_REQUEST['id']));
+	// // Delete from tbl_product_color
+	// $statement = $pdo->prepare("DELETE FROM tbl_product_color WHERE p_id=?");
+	// $statement->execute(array($_REQUEST['id']));
 
-	// Delete from tbl_rating
-	$statement = $pdo->prepare("DELETE FROM tbl_rating WHERE p_id=?");
-	$statement->execute(array($_REQUEST['id']));
+	// // Delete from tbl_rating
+	// $statement = $pdo->prepare("DELETE FROM tbl_rating WHERE p_id=?");
+	// $statement->execute(array($_REQUEST['id']));
 
 	// Delete from tbl_payment
 	$statement = $pdo->prepare("SELECT * FROM tbl_order WHERE product_id=?");
