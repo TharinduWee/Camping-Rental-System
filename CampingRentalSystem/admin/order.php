@@ -148,7 +148,7 @@ if($success_message != '') {
                     </th>
                     <th>Paid Amount</th>
                     <th>Payment Status</th>
-                    <th>Shipping Status</th>
+                    <th>Renting Status</th>
 			        <th>Action</th>
 			    </tr>
 			</thead>
@@ -243,7 +243,7 @@ if($success_message != '') {
                         		<b>Transaction Information:</b> <br><?php echo $row['bank_transaction_info']; ?><br>
                         	<?php endif; ?>
                         </td>
-                        <td>$<?php echo $row['paid_amount']; ?></td>
+                        <td>Rs <?php echo $row['paid_amount']; ?></td>
                         <td>
                             <?php echo $row['payment_status']; ?>
                             <br><br>

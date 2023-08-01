@@ -898,7 +898,7 @@ foreach ($result as $row) {
                         <li><a href="#tab_6" data-toggle="tab">Home Settings</a></li>
                         <li><a href="#tab_7" data-toggle="tab">Banner Settings</a></li>
                         <li><a href="#tab_9" data-toggle="tab">Payment Settings</a></li>
-                        <li><a href="#tab_10" data-toggle="tab">Head & Body Scripts</a></li>
+                        <!-- <li><a href="#tab_10" data-toggle="tab">Head & Body Scripts</a></li> -->
                        <!--<li><a href="#tab_11" data-toggle="tab">Ads</a></li>-->
                     </ul>
                     <div class="tab-content">
@@ -1098,12 +1098,12 @@ foreach ($result as $row) {
                                             <input type="text" class="form-control" name="total_popular_post_sidebar" value="<?php echo $total_popular_post_sidebar; ?>">
                                         </div>
                                     </div>-->
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label for="" class="col-sm-4 control-label">Home Page (How many featured product?)<span>*</span></label>
                                         <div class="col-sm-2">
                                             <input type="text" class="form-control" name="total_featured_product_home" value="<?php echo $total_featured_product_home; ?>">
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group">
                                         <label for="" class="col-sm-4 control-label">Home Page (How many latest product?)<span>*</span></label>
                                         <div class="col-sm-2">
@@ -1139,7 +1139,7 @@ foreach ($result as $row) {
                             <form class="form-horizontal" action="" method="post">
                             <div class="box box-info">
                                 <div class="box-body">
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label for="" class="col-sm-3 control-label">Service Section </label>
                                         <div class="col-sm-4">
                                             <select name="home_service_on_off" class="form-control" style="width:auto;">
@@ -1147,7 +1147,7 @@ foreach ($result as $row) {
                                             	<option value="0" <?php if($home_service_on_off == 0) {echo 'selected';} ?>>Off</option>
                                             </select>
                                         </div>
-                                    </div>      
+                                    </div>       -->
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label">Welcome Section </label>
                                         <div class="col-sm-4">
@@ -1157,7 +1157,7 @@ foreach ($result as $row) {
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label for="" class="col-sm-3 control-label">Featured Product Section </label>
                                         <div class="col-sm-4">
                                             <select name="home_featured_product_on_off" class="form-control" style="width:auto;">
@@ -1165,7 +1165,7 @@ foreach ($result as $row) {
                                             	<option value="0" <?php if($home_featured_product_on_off == 0) {echo 'selected';} ?>>Off</option>
                                             </select>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label">Latest Product Section </label>
                                         <div class="col-sm-4">
@@ -1214,7 +1214,7 @@ foreach ($result as $row) {
                             </form>
 
                             
-                            <h3>Meta Section</h3>
+                            <!-- <h3>Meta Section</h3>
                             <form class="form-horizontal" action="" method="post">
                             <div class="box box-info">
                                 <div class="box-body">
@@ -1244,7 +1244,7 @@ foreach ($result as $row) {
                                     </div>
                                 </div>
                             </div>
-                            </form>
+                            </form> -->
 
 
 
@@ -1302,7 +1302,7 @@ foreach ($result as $row) {
 
 
 
-                            <h3>Featured Product Section</h3>
+                            <!-- <h3>Featured Product Section</h3>
                             <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
                             <div class="box box-info">
                                 <div class="box-body">                                          
@@ -1326,7 +1326,7 @@ foreach ($result as $row) {
                                     </div>
                                 </div>
                             </div>
-                            </form>
+                            </form> -->
 
 
                             <h3>Latest Product Section</h3>

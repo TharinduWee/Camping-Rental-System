@@ -191,6 +191,7 @@ if(isset($_POST['form_add_to_cart'])) {
             }
          
             $selected_date = isset($_POST['selected_date']) ? $_POST['selected_date'] : '';
+            $return_date= isset($_POST['return_date']) ? $_POST['return_date'] : '';
 
 
             $_SESSION['cart_p_id'][$new_key] = $_REQUEST['id'];
@@ -203,6 +204,7 @@ if(isset($_POST['form_add_to_cart'])) {
             $_SESSION['cart_p_name'][$new_key] = $_POST['p_name'];
             $_SESSION['cart_p_featured_photo'][$new_key] = $_POST['p_featured_photo'];
             $_SESSION['cart_selected_date'][$new_key] = $selected_date; // Save the selected date in the session
+            $_SESSION['cart_return_date'][$new_key] = $return_date; 
 
 
             $success_message1 = 'Product is added to the cart successfully!';
@@ -355,6 +357,16 @@ if($success_message1 != '') {
                                 <label for="selected_date">Select a start date:</label>
                                 <input type="date" id="selected_date" name="selected_date">
                             </div>
+                            <!-- added date picker for selecting return date -->
+                            <div class="p-quantity">
+                                <label for="return_date">Select a return date:</label>
+                                <input type="date" id="return_date" name="return_date">
+                            </div>
+                            <!-- Display the calculated days -->
+                            <div class="p-quantity">
+                                <label for="days_count">Number of days:</label>
+                                <span id="days_count">0</span>
+                            </div>
 
                             <div class="p-price">
                                 <span style="font-size:14px;"><?php echo LANG_VALUE_54; ?></span><br>
@@ -450,7 +462,8 @@ if($success_message1 != '') {
                             <div class="text">
                                 <h3><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a></h3>
                                 <h4>
-                                    <?php echo LANG_VALUE_1; ?><?php echo $row['p_current_price']; ?>
+                                    <?php echo LANG_VALUE_1 . ' ' . $row['p_current_price']; ?>
+
                                     <!-- <?php if($row['p_old_price'] != ''): ?>
                                     <del>
                                         <?php echo LANG_VALUE_1; ?><?php echo $row['p_old_price']; ?>
@@ -476,3 +489,23 @@ if($success_message1 != '') {
 
 
 <?php require_once('footer.php'); ?>
+
+<!-- added js for date selector -->
+
+<script>
+    // Function to calculate the difference in days between two dates
+    function calculateDateDifference() {
+        const startDate = new Date(document.getElementById('selected_date').value);
+        const returnDate = new Date(document.getElementById('return_date').value);
+
+        // Calculate the difference in milliseconds and convert to days
+        const difference = Math.floor((returnDate - startDate) / (1000 * 60 * 60 * 24));
+
+        // Update the days count on the page
+        document.getElementById('days_count').textContent = difference;
+    }
+
+    // Attach the calculateDateDifference function to the change event of both date pickers
+    document.getElementById('selected_date').addEventListener('change', calculateDateDifference);
+    document.getElementById('return_date').addEventListener('change', calculateDateDifference);
+</script>
