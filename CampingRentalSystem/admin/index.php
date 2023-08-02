@@ -155,12 +155,13 @@ $total_order_pending = $statement->rowCount();
 
 </div>
 
-<!-- <div class="row" style="margin-left: 50px;">
+<div class="row" style="margin-left: 50px;">
     <div class="col-lg-6">
         <?php include 'pie-chart 2.php'?>
-    </div>
 </div>
-     -->
+<div></div>
+</div>
+    
      <?php include 'pie-chart 2.php'?>
 </section>
 
