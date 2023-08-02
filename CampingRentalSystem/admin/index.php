@@ -96,58 +96,72 @@ $total_order_pending = $statement->rowCount();
 
     <!-- Additional small boxes for Subscribers, Top Categories, Mid Categories, and End Categories -->
     <div class="row">
-        <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-yellow">
-                <div class="inner">
-                    <h3><?php echo $total_subscriber; ?></h3>
-                    <p>Subscribers</p>
-                </div>
-                <div class="icon">
-                    <i class="ionicons ion-person-add"></i>
-                </div>
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-yellow">
+            <div class="inner">
+                <h3><?php echo $total_subscriber; ?></h3>
+                <p>Subscribers</p>
             </div>
-        </div>
-
-        <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-olive">
-                <div class="inner">
-                    <h3><?php echo $total_top_category; ?></h3>
-                    <p>Top Categories</p>
-                </div>
-                <div class="icon">
-                    <i class="ionicons ion-arrow-up-b"></i>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-blue">
-                <div class="inner">
-                    <h3><?php echo $total_mid_category; ?></h3>
-                    <p>Mid Categories</p>
-                </div>
-                <div class="icon">
-                    <i class="ionicons ion-android-menu"></i>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-maroon">
-                <div class="inner">
-                    <h3><?php echo $total_end_category; ?></h3>
-                    <p>End Categories</p>
-                </div>
-                <div class="icon">
-                    <i class="ionicons ion-arrow-down-b"></i>
-                </div>
+            <div class="icon">
+                <i class="ionicons ion-person-add"></i>
             </div>
         </div>
     </div>
+
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-olive">
+            <div class="inner">
+                <h3><?php echo $total_top_category; ?></h3>
+                <p>Top Categories</p>
+            </div>
+            <div class="icon">
+                <i class="ionicons ion-arrow-up-b"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-blue">
+            <div class="inner">
+                <h3><?php echo $total_mid_category; ?></h3>
+                <p>Mid Categories</p>
+            </div>
+            <div class="icon">
+                <i class="ionicons ion-android-menu"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-maroon">
+            <div class="inner">
+                <h3><?php echo $total_end_category; ?></h3>
+                <p>End Categories</p>
+            </div>
+            <div class="icon">
+                <i class="ionicons ion-arrow-down-b"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="margin-left: 100px;">
+        <?php include 'pie-chart.php'?>
+        
+
+</div>
+
+<!-- <div class="row" style="margin-left: 50px;">
+    <div class="col-lg-6">
+        <?php include 'pie-chart 2.php'?>
+    </div>
+</div>
+     -->
+     <?php include 'pie-chart 2.php'?>
 </section>
 
 <?php require_once('footer.php'); ?>

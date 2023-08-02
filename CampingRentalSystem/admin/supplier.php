@@ -23,31 +23,30 @@
 								<th>Address</th>
 								<th>Email</th>
 								<th>Telephone</th>
-								<th width="80">Action</th>
 							</tr>
 						</thead>
 						<tbody>
 							<?php
 							$i = 0;
-							$statement = $pdo->prepare("SELECT * FROM tbl_user");
-							$statement->execute();
-							$result = $statement->fetchAll(PDO::FETCH_ASSOC);
-							foreach ($result as $row) {
-								$i++;
-								?>
-								<tr>
-									<td><?php echo $i; ?></td>
-									<td><?php echo $row['supplier_name']; ?></td>
-									<td><?php echo $row['product']; ?></td>
-									<td><?php echo $row['address']; ?></td>
-									<td><?php echo $row['email']; ?></td>
-									<td><?php echo $row['telephone']; ?></td>
-									<td>
-										<a href="supplier-edit.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-xs">Edit</a>
-										<a href="#" class="btn btn-danger btn-xs" data-href="supplier-delete.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete">Delete</a>  
-									</td>
-								</tr>
-								<?php
+							$statement = $pdo->prepare("SELECT * FROM tbl_supplier");
+							if ($statement->execute()) {
+								$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+								foreach ($result as $row) {
+									$i++;
+									?>
+									<tr>
+										<td><?php echo $i; ?></td>
+										<td><?php echo isset($row['supplier_name']) ? $row['supplier_name'] : 'N/A'; ?></td>
+										<td><?php echo isset($row['product']) ? $row['product'] : 'N/A'; ?></td>
+										<td><?php echo isset($row['address']) ? $row['address'] : 'N/A'; ?></td>
+										<td><?php echo isset($row['email']) ? $row['email'] : 'N/A'; ?></td>
+										<td><?php echo isset($row['telephone']) ? $row['telephone'] : 'N/A'; ?></td>
+									</tr>
+									<?php
+								}
+							} else {
+								// Display an error message if the query execution fails
+								echo "Error: " . $statement->errorInfo()[2];
 							}
 							?>							
 						</tbody>
@@ -57,23 +56,5 @@
 		</div>
 	</div>
 </section>
-
-<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure want to delete this item?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-danger btn-ok">Delete</a>
-            </div>
-        </div>
-    </div>
-</div>
 
 <?php require_once('footer.php'); ?>
